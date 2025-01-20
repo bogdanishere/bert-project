@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 96.86%; /* modificat */
+    --foreground: 0 0% 16.86%; /*modificaat dark*/
+    --card: 0 0% 96.86%; /* modificat */
+    --card-foreground: 0 0% 16.86%; /*modificaat dark*/
+    --popover: 0 0% 96.86%; /* modificat */
+    --popover-foreground: 0 0% 16.86%; /*modificaat dark*/
+    --primary: 0 0% 16.86%; /*modificaat dark 220.9 39.3% 11%*/
+    --primary-foreground: 0 0% 96.86%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 0 0% 16.86%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 0 0% 16.86%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 96.86%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 0 0% 16.86%; /*modificaat dark*/
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 16.86%; /*modificaat dark*/
+    --foreground: 0 0% 96.86%;
+    --card: 0 0% 16.86%; /*modificaat dark*/
+    --card-foreground: 0 0% 96.86%;
+    --popover: 0 0% 16.86%; /*modificaat dark*/
+    --popover-foreground: 0 0% 96.86%;
+    --primary: 0 0% 96.86%;
+    --primary-foreground: 0 0% 16.86%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 0 0% 96.86%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 0 0% 96.86%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 96.86%;
+    --border: 215.38, 28.06%, 54.51%;
+    --input: 215.38, 28.06%, 54.51%;
+    --ring: 216 12.2% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  95% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  95% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.card {
+  perspective: 150rem;
+  height: 40rem;
+  position: relative;
+}
+
+.card__side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 95%;
+  height: 95%;
+  transition: transform 0.8s ease, background-color 0.3s ease, color 0.3s ease;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card__side--front {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__side--back {
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card:hover .card__side--front {
+  transform: rotateY(-180deg);
+}
+
+.card:hover .card__side--back {
+  transform: rotateY(0);
+}
+
+.heading-secondary {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #38bdf8, #075985);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #38bdf8; /* Default color when not hovering */
+  transition: all 0.2s;
+  letter-spacing: 2px;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .heading-secondary {
+    font-size: 1.2rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .heading-secondary {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+}
+
+.heading-secondary:hover {
+  transform: skewY(2deg) skewX(15deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
+  color: transparent; /* Make text transparent on hover to show gradient */
+}

@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    /* Adjust the background color to blue */
+    --background: 202 90% 72%; /* $color-primary-light (#38bdf8) */
+    --foreground: 0 0% 0%; /* $color-black */
+    --card: 0 0% 100%; /* $color-white */
+    --card-foreground: 0 0% 0%; /* $color-black */
+    --popover: 0 0% 100%; /* $color-white */
+    --popover-foreground: 0 0% 0%; /* $color-black */
+    --primary: 202 84% 56%; /* $color-primary (#0284c7) */
+    --primary-foreground: 210 100% 97%; /* $color-white */
+    --secondary: 45 100% 52%; /* $color-secondary-light (#ffb900) */
+    --secondary-foreground: 0 0% 0%; /* $color-black */
+    --muted: 0 0% 94%; /* $color-grey-light-1 */
+    --muted-foreground: 0 0% 47%; /* $color-grey-dark */
+    --accent: 202 84% 56%; /* $color-primary-light (#38bdf8) */
+    --accent-foreground: 210 100% 97%; /* $color-white */
+    --destructive: 0 84% 60%; /* $color-secondary-dark (#ff7730) */
+    --destructive-foreground: 0 0% 100%; /* $color-white */
+    --border: 0 0% 87%; /* $color-grey-light-2 */
+    --input: 0 0% 87%; /* $color-grey-light-2 */
+    --ring: 202 84% 56%; /* $color-primary (#0284c7) */
+    --radius: 0.5rem;
+
+    /* Chart Colors */
+    --chart-1: 43 74% 66%; /* $color-tertiary-light (#2998ff) */
+    --chart-2: 27 87% 67%; /* $color-tertiary-dark (#5643fa) */
+    --chart-3: 30 80% 55%; /* Custom Color */
+    --chart-4: 280 65% 60%; /* Custom Color */
+    --chart-5: 340 75% 55%; /* Custom Color */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Adjust dark mode background to a dark blue */
+    --background: 210 50% 16%; /* Darker shade of $color-primary-dark (#075985) */
+    --foreground: 0 0% 100%; /* $color-white */
+    --card: 210 50% 16%; /* Same as background */
+    --card-foreground: 0 0% 100%; /* $color-white */
+    --popover: 210 50% 16%; /* Same as background */
+    --popover-foreground: 0 0% 100%; /* $color-white */
+    --primary: 210 50% 72%; /* $color-primary-light (#38bdf8) */
+    --primary-foreground: 0 0% 10%; /* $color-grey-dark-3 */
+    --secondary: 220 14.3% 95.9%; /* $color-secondary-light (#ffb900) */
+    --secondary-foreground: 210 20% 98%; /* $color-white */
+    --muted: 220 14.3% 95.9%; /* $color-grey-light-1 */
+    --muted-foreground: 220 8.9% 46.1%; /* $color-grey-dark */
+    --accent: 202 84% 56%; /* $color-primary-light (#38bdf8) */
+    --accent-foreground: 0 0% 10%; /* $color-grey-dark-3 */
+    --destructive: 0 62.8% 30.6%; /* $color-secondary-dark (#ff7730) */
+    --destructive-foreground: 0 0% 100%; /* $color-white */
+    --border: 220 13% 91%; /* $color-grey-light-2 */
+    --input: 220 13% 91%; /* $color-grey-light-2 */
+    --ring: 202 84% 56%; /* $color-primary (#0284c7) */
+    --chart-1: 202 84% 56%; /* $color-primary */
+    --chart-2: 45 100% 52%; /* $color-secondary-light */
+    --chart-3: 27 87% 67%; /* $color-tertiary-dark */
+    --chart-4: 30 80% 55%; /* Custom Color */
+    --chart-5: 43 74% 66%; /* Custom Color */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
