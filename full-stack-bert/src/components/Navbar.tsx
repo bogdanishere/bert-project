@@ -10,7 +10,7 @@ export default function Navbar() {
   const { theme } = useTheme();
 
   return (
-    <header className="shadow-sm border-b ">
+    <header className="shadow-sm border-b">
       <div className="mx-auto flex max-w-7xl justify-between gap-3 p-3">
         <SidebarTrigger />
 

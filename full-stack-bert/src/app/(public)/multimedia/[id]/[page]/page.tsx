@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { existingMovieInFavorite, searchMovieById } from "./actions";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import ButtonAddFavorite from "./ButtonAddFavorite";
+import ButtonBack from "./ButtonBack";
 
 interface PageProps {
   params: Promise<{
@@ -78,9 +77,7 @@ export default async function Page({ params }: PageProps) {
           </div>
 
           <div className="flex gap-4 mt-6 justify-around">
-            <Link href={`/${page}`}>
-              <Button>Back to home</Button>
-            </Link>
+            <ButtonBack />
             <ButtonAddFavorite
               data={buttonData}
               isAleadyFavorite={isAleadyFavorite}

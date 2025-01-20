@@ -27,7 +27,7 @@ export default function MovieList() {
     <div>
       {loading && <Spinner />}
       {movies.length > 0 && (
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(25rem,1fr))] gap-8 p-8 transition-all duration-300">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] gap-8 p-8 transition-all duration-300">
           {filteredMovies.map((movie) => (
             <div key={movie.imdbID} className="card">
               <div className="card__side card__side--front">
@@ -46,7 +46,9 @@ export default function MovieList() {
                   className="text-white flex flex-col items-center
                  justify-center gap-4 p-1"
                 >
-                  <h2 className="mb-8 text-2xl">{movie.Title}</h2>
+                  <h2 className="mb-8 text-2xl px-9 flex justify-center items-center mx-auto">
+                    {movie.Title}
+                  </h2>
                   <p>Year: {movie.Year}</p>
                   <p className="mb-2">Category: {movie.Type}</p>
                   <Link href={`/multimedia/${movie.imdbID}/${page}`}>

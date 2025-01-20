@@ -20,6 +20,7 @@ export default function SearchMovieForm() {
   const { movieSearch, setMovieSearch } = useMovie();
 
   const onSubmit: SubmitHandler<SearchMovieType> = async (data) => {
+    console.log(data.movie, movieSearch);
     if (data.movie !== movieSearch) router.push("/1");
     setMovieSearch(data.movie);
   };

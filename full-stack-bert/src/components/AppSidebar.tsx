@@ -1,6 +1,4 @@
-import { Home } from "lucide-react";
-import { PlusSquare } from "lucide-react";
-// import { Trash2 } from "lucide-react";
+import { Home, LogIn, LogOut, User } from "lucide-react";
 
 import {
   Sidebar,
@@ -19,6 +17,7 @@ import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import Image from "next/image";
 import ChatBotButtonToggle from "./ChatBotButtonToggle";
+import { SignOutButton } from "@clerk/nextjs";
 
 const items = [
   {
@@ -29,7 +28,12 @@ const items = [
   {
     title: "Profile",
     url: "/profile",
-    icon: PlusSquare,
+    icon: User,
+  },
+  {
+    title: "Sign In",
+    url: "/sign-in",
+    icon: LogIn,
   },
 ];
 
@@ -63,13 +67,18 @@ export function AppSidebar() {
                 </SidebarMenuItem>
               ))}
               <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <ThemeToggle />
-                </SidebarMenuButton>
+                <ThemeToggle />
               </SidebarMenuItem>
 
               <SidebarMenuItem>
                 <ChatBotButtonToggle />
+              </SidebarMenuItem>
+
+              <SidebarMenuItem>
+                <div className="flex items-center gap-2 pl-1.5 pt-1">
+                  <LogOut size={20} />
+                  <SignOutButton />
+                </div>
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>

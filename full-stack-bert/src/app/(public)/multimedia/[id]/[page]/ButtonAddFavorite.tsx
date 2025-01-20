@@ -33,7 +33,7 @@ export default function ButtonAddFavorite({
       onClick={(e) => handleAddFavorite(e, data)}
       disabled={isAleadyFavorite}
     >
-      ButtonAddFavorite
+      {isAleadyFavorite ? "Already in favorites" : "Add to favorites"}
     </Button>
   );
 }

@@ -67,15 +67,16 @@ interface SendAllConversationProps {
 export const sendAllConversationAction = async (
   conversation: SendAllConversationProps
 ) => {
+  const { userId } = await auth();
+
+  if (!userId) {
+    console.log("No user found.");
+    redirect("/sign-in");
+  }
+
   try {
     if (!conversation.messages || conversation.messages.length === 0) {
       throw new Error("No messages provided.");
-    }
-
-    const { userId } = await auth();
-
-    if (!userId) {
-      return redirect("/sign-in");
     }
 
     await prisma.conversation.deleteMany({
@@ -99,7 +100,7 @@ export const sendAllConversationAction = async (
 
     console.log("New conversation and messages saved successfully.");
   } catch (error) {
-    console.error("Error saving conversation:", error);
+    throw new Error(error instanceof Error ? error.message : String(error));
   }
 };
 
